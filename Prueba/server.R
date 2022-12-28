@@ -15,14 +15,11 @@ shinyServer(function(input, output) {
   load("datos_app.RData")
   
     
-    #Aqui cambie la funcion renderplot por la funcion renderHighcharter,
-    #porque la funcion que genera el grafico depende de la libreria que se use
-    #por tanto en la salida de la ui tambien se cambia plotOutput ´por highchartOutput
-    
+  
     output$grafico_general<-renderHighchart({
       
       highchart() %>%
-        hc_add_series(name="demanda",data, type = "line",
+        hc_add_series(name=i18n$t("Demanda"),data, type = "line",
                       hcaes(x = x1, y = demanda))  %>% hc_xAxis(type="datetime")
       })
     
