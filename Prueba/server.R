@@ -107,4 +107,19 @@ shinyServer(function(input, output) {
     output$grafico_circular_3<-renderHighchart({ 
       tabla %>% hchart("pie",hcaes(x=X1,y=X2),name="Edades")
     }) 
+    
+    output$histogramas_covid_edad<-renderHighchart({
+      
+    hchart(density(covid_por_edad2$X1), type = "area", 
+             name = "Niños menores de 1 año") %>%
+        hc_add_series(density(covid_por_edad2$X2), type = "area",
+                      name = "Niños de 1 a 4 años") %>%
+        hc_add_series(density(covid_por_edad2$X3), type = "area",
+                      name = "Niños de 5 a 14 años") %>%
+        hc_add_series(density(covid_por_edad2$X4), type = "area",
+                      name = "Adultos de 15 a 64 años") %>%
+        hc_add_series(density(covid_por_edad2$X5), type = "area",
+                      name = "Adultos de 65 y más años")
+      
+    })
 })

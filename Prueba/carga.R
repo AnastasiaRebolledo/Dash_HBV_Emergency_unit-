@@ -69,6 +69,8 @@ covid_2021<-read.xlsx(file="Urgencia2021.xlsx",sheetIndex = 1, rowIndex = c(68,6
 covid_2022<-read.xlsx(file="Urgencia2022.xlsx",sheetIndex = 1, rowIndex = c(68,69,109,110,150,151,191,192,232,233), colIndex= 2:341
                        , as.data.frame = TRUE, header = FALSE)
 
+### tabla covid por edad para gráfico circular ####
+
 covid_por_edad<-cbind(covid_2020,covid_2021,covid_2022)
 
 covid_por_edad<-rowSums(covid_por_edad)
@@ -87,3 +89,17 @@ tabla[3,2]<-sum(covid_por_edad[5:6])
 tabla[4,2]<-sum(covid_por_edad[7:8])
 tabla[5,2]<-sum(covid_por_edad[9:10])
 
+### tabla covid por edad para histogramas ####
+
+covid2020<-data.frame(t(covid_2020))
+covid2021<-data.frame(t(covid_2021))
+covid2022<-data.frame(t(covid_2022))
+
+covid_por_edad2<-rbind(covid2020,covid2021,covid2022)
+covid_por_edad2$X1<- rowSums(covid_por_edad2[,1:2], na.rm = FALSE)
+covid_por_edad2$X2<- rowSums(covid_por_edad2[,3:4], na.rm = FALSE)
+covid_por_edad2$X3<- rowSums(covid_por_edad2[,5:6], na.rm = FALSE)
+covid_por_edad2$X4<- rowSums(covid_por_edad2[,7:8], na.rm = FALSE)
+covid_por_edad2$X5<- rowSums(covid_por_edad2[,9:10], na.rm = FALSE)
+covid_por_edad2[,-6:-10]
+                      

@@ -19,10 +19,10 @@ library(viridisLite)
 library(moments)
 library(shinycssloaders)
 #source("carga.R")
-library(shiny.worker)
+#library(shiny.worker)
 library(promises)
 library(future)
-library(shiny.fluent)
+#library(shiny.fluent)
 library(shiny.i18n)
 source("traductor.R")
 
@@ -93,7 +93,10 @@ dashboardPage(
                                 withSpinner(highchartOutput("grafico_covid",height = "300px")),
                                 status = "primary",headerBorder = FALSE,collapsible = FALSE)),
           fluidRow(width=12,box(width = 6,title = i18n$t("Atenciones de urgencia Covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("grafico_circular_3",height = "300px")),
-                       status = "secondary",headerBorder = FALSE,collapsible = FALSE))
-          ))
+                       status = "secondary",headerBorder = FALSE,collapsible = FALSE),
+                            box(width = 6,title = i18n$t("Histogramas"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
+                                status = "secondary",headerBorder = FALSE,collapsible = FALSE))
+          )
+  )
   
 ))
