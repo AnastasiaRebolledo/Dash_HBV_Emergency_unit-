@@ -40,12 +40,13 @@ shinyServer(function(input, output) {
     
     
     output$grafico_circular_1<-renderHighchart({ 
-          causa %>% hchart("pie",hcaes(x=X1,y=X6),name="Causas")
+          
+          causa %>% hchart("pie",hcaes(x=X1,y=X6),name=i18n$t("Causas"))
       })  
     
     
     output$grafico_circular_2<-renderHighchart({ 
-          edad %>% hchart("pie",hcaes(x=X1,y=X6),name="Causas")
+          edad %>% hchart("pie",hcaes(x=X1,y=X6),name=i18n$t("Causas"))
       })  
     
     
@@ -90,36 +91,40 @@ shinyServer(function(input, output) {
 
     
     output$grafico_barras_causa<-renderHighchart({ 
-      causas_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Tipo.de.causa"))
+      causas_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Tipo.de.causa")) %>%
+        hc_xAxis(title = list(text = i18n$t("Año"))) %>%
+        hc_yAxis(title = list(text = i18n$t("Cantidad")))
     })
     
     output$grafico_barras_edad<-renderHighchart({ 
-      edad_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Edad"))
+      edad_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Edad"))  %>%
+        hc_xAxis(title = list(text = i18n$t("Año"))) %>%
+        hc_yAxis(title = list(text = i18n$t("Cantidad")))
     })
     
     output$grafico_covid<-renderHighchart({
       
       highchart() %>%
-        hc_add_series(name="demanda",covid, type = "line",
+        hc_add_series(name=i18n$t("Demanda"),covid, type = "line",
                       hcaes(x = x1, y = covid))  %>% hc_xAxis(type="datetime")
     })
     
     output$grafico_circular_3<-renderHighchart({ 
-      tabla %>% hchart("pie",hcaes(x=X1,y=X2),name="Edades")
+      tabla %>% hchart("pie",hcaes(x=X1,y=X2),name=i18n$t("Edades"))
     }) 
     
     output$histogramas_covid_edad<-renderHighchart({
       
     hchart(density(covid_por_edad2$X1), type = "area", 
-                      name = "Niños menores de 1 año") %>%
+                      name = i18n$t("Niños menores de 1 año")) %>%
         hc_add_series(density(covid_por_edad2$X2), type = "area",
-                      name = "Niños de 1 a 4 años") %>%
+                      name = i18n$t("Niños de 1 a 4 años")) %>%
         hc_add_series(density(covid_por_edad2$X3), type = "area",
-                      name = "Niños de 5 a 14 años") %>%
+                      name = i18n$t("Niños de 5 a 14 años")) %>%
         hc_add_series(density(covid_por_edad2$X4), type = "area",
-                      name = "Adultos de 15 a 64 años") %>%
+                      name = i18n$t("Adultos de 15 a 64 años")) %>%
         hc_add_series(density(covid_por_edad2$X5), type = "area",
-                      name = "Adultos de 65 y más años")
+                      name = i18n$t("Adultos de 65 y más años"))
       
     })
 })

@@ -1,4 +1,7 @@
 es,en
+Cantidad,Quantity
+Edades,Ages
+Causas,Causes
 Unidad de Urgencia HBV,HBV Emergency unit
 Menu Principal,Main menu
 Estadisticas anuales,Annual statistics
@@ -8,7 +11,7 @@ Demanda de atenciones de urgencia por día, Demand for urgent care per day
 Media, Mean
 Desviación estándar, Standard deviation
 Asimetría, asymmetry
-Histograma de atenciones diarias de urgencias, Histogram of daily emergency care
+Histogramas de atenciones diarias de urgencias, Histogram of daily emergency care
 Atenciones de urgencia por causa, Emergency care according to cause
 Atenciones de urgencia por edad, Emergency care by age
 Demanda diaria casos con Covid-19, Daily demand for cases with Covid-19
@@ -20,3 +23,4 @@ Niños de 1 a 4 años, Children from 1 to 4 years
 Niños de 5 a 14 años, Children from 5 to 14 years
 Adultos de 15 a 64 años, Adults from 15 to 64 years
 Adultos de 65 y más años, Adults 65 and over
+TOTAL CAUSAS SISTEMA RESPIRATORIO,TOTAL CAUSES RESPIRATORY SYSTEM

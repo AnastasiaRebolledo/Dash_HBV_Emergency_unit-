@@ -3,6 +3,7 @@ x2<-seq(as.Date("2022-01-01"),as.Date("2022-12-31"),"day")
 
 y1<-read.xlsx(file="Urgencia2019.xlsx",sheetIndex = 1, rowIndex = 19, colIndex= 2:366
               , as.data.frame = TRUE, header = FALSE)
+
 y2<-read.xlsx(file="Urgencia2020.xlsx",sheetIndex = 1, rowIndex = 19, colIndex= 2:367
               , as.data.frame = TRUE, header = FALSE)
 y2_2<-read.xlsx(file="Urgencia2020(2).xlsx",sheetIndex = 1, rowIndex = 19, colIndex= 2:366
