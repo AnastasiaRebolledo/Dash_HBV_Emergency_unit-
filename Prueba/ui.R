@@ -48,17 +48,17 @@ dashboardPage(
       tabItem(tabName = "menu1",
     
     # Boxes need to be put in a row (or column)
-    fluidRow(width=12,box(width = 10,title = i18n$t("Grafico General"),closable = FALSE,elevation = 2,
+    fluidRow(width=12,box(width = 10,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,
                           withSpinner(highchartOutput("grafico_general",height = "300px")),
                           status = "primary",headerBorder = FALSE,collapsible = FALSE),
              column(width = 2,
                     valueBox(width = 12,subtitle = i18n$t("Media"),value = textOutput("media_1"),color = "primary",icon = icon("check")),
                     valueBox(width = 12,subtitle = i18n$t("Desviación estándar"),value = textOutput("desvest_1"),color = "info",icon = icon("check")),
-                    valueBox(width = 12,subtitle = i18n$t("Asimetria"),value = textOutput("asi_1"),color = "success",icon = icon("check"))
+                    valueBox(width = 12,subtitle = i18n$t("Asimetría"),value = textOutput("asi_1"),color = "success",icon = icon("check"))
              )),
     
     
-    fluidRow(width=12,box(width = 4,title = i18n$t("Histograma"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histograma_principal",height = "300px")),
+    fluidRow(width=12,box(width = 4,title = i18n$t("Histograma de atenciones diarias de urgencias"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histograma_principal",height = "300px")),
                           status = "secondary",headerBorder = FALSE,collapsible = FALSE),
                       box(width = 4,title = i18n$t("Atenciones de urgencia por causa"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("grafico_circular_1",height = "300px")),
                           status = "secondary",headerBorder = FALSE,collapsible = FALSE),
@@ -67,12 +67,12 @@ dashboardPage(
    
   ),
       tabItem(tabName = "menu2",
-              fluidRow(width=12,box(width = 12,title = i18n$t("Grafico Principal"),closable = FALSE,elevation = 2,
+              fluidRow(width=12,box(width = 12,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,
                                     withSpinner(highchartOutput("grafico_principal",height = "300px")),
                                     status = "info",headerBorder = FALSE,collapsible = FALSE)),
     
     fluidRow(width=12,
-             box(width = 12,title = i18n$t("Histogramas"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_principales",height = "300px")),
+             box(width = 12,title = i18n$t("Histogramas de atenciones diarias de urgencias"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_principales",height = "300px")),
                  status = "info",headerBorder = FALSE,collapsible = FALSE)),
     
 
@@ -89,12 +89,12 @@ dashboardPage(
 
   
   tabItem(tabName = "menu3",
-          fluidRow(width=12,box(width = 12,title = i18n$t("Atenciones de urgencia Covid-19"),closable = FALSE,elevation = 2,
+          fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria casos con Covid-19"),closable = FALSE,elevation = 2,
                                 withSpinner(highchartOutput("grafico_covid",height = "300px")),
                                 status = "primary",headerBorder = FALSE,collapsible = FALSE)),
-          fluidRow(width=12,box(width = 6,title = i18n$t("Atenciones de urgencia Covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("grafico_circular_3",height = "300px")),
+          fluidRow(width=12,box(width = 6,title = i18n$t("Atenciones de urgencia de casos con Covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("grafico_circular_3",height = "300px")),
                        status = "secondary",headerBorder = FALSE,collapsible = FALSE),
-                            box(width = 6,title = i18n$t("Histogramas"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
+                            box(width = 6,title = i18n$t("Histogramas de atenciones de urgencia casos covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
                                 status = "secondary",headerBorder = FALSE,collapsible = FALSE))
           )
   )

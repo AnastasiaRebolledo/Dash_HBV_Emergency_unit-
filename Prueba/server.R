@@ -35,7 +35,7 @@ shinyServer(function(input, output) {
     
     
     output$histograma_principal<-renderHighchart({
-          hchart(density(data$demanda[1:1436]), type = "area", name = "Demanda")
+          hchart(density(data$demanda[1:1436]), type = "area", name = i18n$t("Demanda"))
       })
     
     
@@ -111,7 +111,7 @@ shinyServer(function(input, output) {
     output$histogramas_covid_edad<-renderHighchart({
       
     hchart(density(covid_por_edad2$X1), type = "area", 
-             name = "Niños menores de 1 año") %>%
+                      name = "Niños menores de 1 año") %>%
         hc_add_series(density(covid_por_edad2$X2), type = "area",
                       name = "Niños de 1 a 4 años") %>%
         hc_add_series(density(covid_por_edad2$X3), type = "area",

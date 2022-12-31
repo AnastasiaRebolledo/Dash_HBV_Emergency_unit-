@@ -1,6 +1,22 @@
 es,en
-Unidad de Urgencia HBV,Unity of urgency HBV
+Unidad de Urgencia HBV,HBV Emergency unit
 Menu Principal,Main menu
 Estadisticas anuales,Annual statistics
 Urgencias covid,Covid emergencies
 Demanda,demand
+Demanda de atenciones de urgencia por día, Demand for urgent care per day
+Media, Mean
+Desviación estándar, Standard deviation
+Asimetría, asymmetry
+Histograma de atenciones diarias de urgencias, Histogram of daily emergency care
+Atenciones de urgencia por causa, Emergency care according to cause
+Atenciones de urgencia por edad, Emergency care by age
+Demanda diaria casos con Covid-19, Daily demand for cases with Covid-19
+Atenciones de urgencia de casos con Covid-19 por edad, Emergency care for cases with Covid-19 by age
+Histogramas de atenciones de urgencia casos covid-19 por edad, Histograms of covid-19 emergency care by age
+Año, Year
+Niños menores de 1 año, Children under 1 year
+Niños de 1 a 4 años, Children from 1 to 4 years
+Niños de 5 a 14 años, Children from 5 to 14 years
+Adultos de 15 a 64 años, Adults from 15 to 64 years
+Adultos de 65 y más años, Adults 65 and over

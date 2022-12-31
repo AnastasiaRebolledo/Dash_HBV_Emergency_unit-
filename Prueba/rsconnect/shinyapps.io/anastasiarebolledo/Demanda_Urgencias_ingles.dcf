@@ -1,0 +1,14 @@
+name: Demanda_Urgencias_ingles
+title: Demanda_Urgencias_ingles
+username:
+account: anastasiarebolledo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7948728
+bundleId: 6676888
+url: https://anastasiarebolledo.shinyapps.io/Demanda_Urgencias_ingles/
+when: 1672173179.19933
+lastSyncTime: 1672173179.19934
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: template_fomanticUI.R
