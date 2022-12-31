@@ -33,6 +33,10 @@ shinyServer(function(input, output) {
           sd(data$demanda[1:1436])
       })
     
+    output$asi_1<-renderText({
+          skewness(data$demanda[1:1436])
+    })
+    
     
     output$histograma_principal<-renderHighchart({
           hchart(density(data$demanda[1:1436]), type = "area", name = i18n$t("Demanda"))
