@@ -5,4 +5,4 @@
 i18n <- Translator$new(translation_csvs_path = "data/")
 
 # si quieres cambiar a español,solo cambiar en por es y viceversa
-i18n$set_translation_language("en")
+i18n$set_translation_language("es")

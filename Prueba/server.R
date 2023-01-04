@@ -114,6 +114,10 @@ shinyServer(function(input, output) {
     })
     
     output$grafico_circular_3<-renderHighchart({ 
+      
+        
+      tabla$X1<-i18n$t(c("Niños menores de 1 año","Niños de 1 a 4 años","Niños de 5 a 14 años","Adultos de 15 a 64 años","Adultos de 65 y más años"))
+      
       tabla %>% hchart("pie",hcaes(x=X1,y=X2),name=i18n$t("Edades"))
     }) 
     
