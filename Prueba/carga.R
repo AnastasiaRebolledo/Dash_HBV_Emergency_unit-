@@ -20,7 +20,6 @@ y3<-t(y3)
 y4<-t(y4)
 
 
-
 ### Set de datos para serie de tiempo ####
 
 demanda<-rbind(y1,y2,y3,y4)

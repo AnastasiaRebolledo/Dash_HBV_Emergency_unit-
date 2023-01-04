@@ -11,7 +11,8 @@ Demanda de atenciones de urgencia por día, Demand for urgent care per day
 Media, Mean
 Desviación estándar, Standard deviation
 Asimetría, asymmetry
-Histogramas de atenciones diarias de urgencias, Histogram of daily emergency care
+Histograma de atenciones diarias de urgencias, Histogram of daily emergency care
+Histogramas de atenciones diarias de urgencias, Histograms of daily emergency care
 Atenciones de urgencia por causa, Emergency care according to cause
 Atenciones de urgencia por edad, Emergency care by age
 Demanda diaria casos con Covid-19, Daily demand for cases with Covid-19
@@ -24,3 +25,7 @@ Niños de 5 a 14 años, Children from 5 to 14 years
 Adultos de 15 a 64 años, Adults from 15 to 64 years
 Adultos de 65 y más años, Adults 65 and over
 TOTAL CAUSAS SISTEMA RESPIRATORIO,TOTAL CAUSES RESPIRATORY SYSTEM
+Covid-19, Covid-19
+TOTAL CAUSAS SISTEMA CIRCULATORIO, TOTAL CAUSES CIRCULATORY SYSTEM
+TOTAL TRAUMATISMOS Y ENVENENAMIENTO, TOTAL INJURIES AND POISONING
+TOTAL DEMÁS CAUSAS, TOTAL OTHER CAUSES
