@@ -15,7 +15,7 @@ shinyServer(function(input, output) {
   load("datos_app.RData")
   
     
-  
+# menu 1 ####
     output$grafico_general<-renderHighchart({
       
       highchart() %>%
@@ -28,12 +28,15 @@ shinyServer(function(input, output) {
           mean(data$demanda[1:1436])
       })
     
-    
     output$desvest_1<-renderText({
           sd(data$demanda[1:1436])
       })
     
+    output$asi_1<-renderText({
+      skewness(data$demanda[1:1436])
+    })
     
+
     output$histograma_principal<-renderHighchart({
           hchart(density(data$demanda[1:1436]), type = "area", name = i18n$t("Demanda"))
       })
@@ -56,7 +59,7 @@ shinyServer(function(input, output) {
       cols <- viridis(4)
       cols <- substr(cols, 0, 7)
       
-      
+#menu 2 ####   
       #Aca cambie la forma de realizar el grafico pero con la misma libreria highcharter
        highchart() %>%
         hc_add_series(name="2019",data_por_año, type = "line",
@@ -92,17 +95,17 @@ shinyServer(function(input, output) {
 
     
     output$grafico_barras_causa<-renderHighchart({ 
-      #causas_por_año$Tipo.de.causa<-i18n$t(c("TOTAL CAUSAS SISTEMA RESPIRATORIO", "Covid-19", "TOTAL CAUSAS SISTEMA CIRCULATORIO", "TOTAL TRAUMATISMOS Y ENVENENAMIENTO", "TOTAL DEMÁS CAUSAS"))
+      causas_por_año$Tipo.de.causa<-i18n$t(c("TOTAL CAUSAS SISTEMA RESPIRATORIO", "Covid-19", "TOTAL CAUSAS SISTEMA CIRCULATORIO", "TOTAL TRAUMATISMOS Y ENVENENAMIENTO", "TOTAL DEMÁS CAUSAS"))
       causas_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Tipo.de.causa"))
     })
     
     output$grafico_barras_edad<-renderHighchart({ 
       edad_por_año$Edad<-i18n$t(c("Niños menores de 1 año","Niños de 1 a 4 años","Niños de 5 a 14 años","Adultos de 15 a 64 años","Adultos de 65 y más años"))
-      colnames(edad_por_año)<-i18n$t(c("Año","Edad","Cantidad"))
-      
-      edad_por_año %>% hchart("column", hcaes(x = i18n$t("Año"), y = i18n$t("Cantidad"), group = i18n$t("Edad")))
+      edad_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Edad"))
     })
+
     
+# menu 3 ####    
     output$grafico_covid<-renderHighchart({
       
       highchart() %>%
