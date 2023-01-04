@@ -87,7 +87,6 @@ shinyServer(function(input, output) {
                       name = "2022") %>%
       hc_colors(cols)
       
-      
     })
 
     
@@ -98,7 +97,6 @@ shinyServer(function(input, output) {
     
     output$grafico_barras_edad<-renderHighchart({ 
       edad_por_año$Edad<-i18n$t(c("Niños menores de 1 año","Niños de 1 a 4 años","Niños de 5 a 14 años","Adultos de 15 a 64 años","Adultos de 65 y más años"))
-      colnames(edad_por_año)<-i18n$t(c("Año","Edad","Cantidad"))
       
       edad_por_año %>% hchart("column", hcaes(x = i18n$t("Año"), y = i18n$t("Cantidad"), group = i18n$t("Edad")))
     })
