@@ -90,18 +90,20 @@ shinyServer(function(input, output) {
                       name = "2022") %>%
       hc_colors(cols)
       
-      
     })
 
     
     output$grafico_barras_causa<-renderHighchart({ 
       causas_por_año$Tipo.de.causa<-i18n$t(c("TOTAL CAUSAS SISTEMA RESPIRATORIO", "Covid-19", "TOTAL CAUSAS SISTEMA CIRCULATORIO", "TOTAL TRAUMATISMOS Y ENVENENAMIENTO", "TOTAL DEMÁS CAUSAS"))
-      causas_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Tipo.de.causa"))
+      causas_por_año %>% hchart("column", hcaes(x = Año, y = "Cantidad", group = "Tipo.de.causa")) %>%
+      hc_xAxis(title = list(text = i18n$t("Año"))) %>% hc_yAxis(title = list(text = i18n$t("Cantidad")))
     })
     
     output$grafico_barras_edad<-renderHighchart({ 
       edad_por_año$Edad<-i18n$t(c("Niños menores de 1 año","Niños de 1 a 4 años","Niños de 5 a 14 años","Adultos de 15 a 64 años","Adultos de 65 y más años"))
-      edad_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Edad"))
+      edad_por_año %>% hchart("column", hcaes(x = "Año", y = "Cantidad", group = "Edad")) %>%
+      hc_xAxis(title = list(text = i18n$t("Año"))) %>% hc_yAxis(title = list(text = i18n$t("Cantidad")))
+
     })
 
     
