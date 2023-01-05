@@ -5,10 +5,10 @@ account: anastasiarebolledo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7948728
-bundleId: 6676888
+bundleId: 6699337
 url: https://anastasiarebolledo.shinyapps.io/Demanda_Urgencias_ingles/
-when: 1672173179.19933
-lastSyncTime: 1672173179.19934
+when: 1672891674.98277
+lastSyncTime: 1672891674.98279
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: template_fomanticUI.R

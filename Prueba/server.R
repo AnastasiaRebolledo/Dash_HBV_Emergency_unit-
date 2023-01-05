@@ -19,7 +19,7 @@ shinyServer(function(input, output) {
     output$grafico_general<-renderHighchart({
       
       highchart() %>%
-        hc_add_series(name=i18n$t("Demanda"),data, type = "line",
+            hc_add_series(name=i18n$t("Demanda"),data, type = "line",
                       hcaes(x = x1, y = demanda))  %>% hc_xAxis(type="datetime")
       })
     
