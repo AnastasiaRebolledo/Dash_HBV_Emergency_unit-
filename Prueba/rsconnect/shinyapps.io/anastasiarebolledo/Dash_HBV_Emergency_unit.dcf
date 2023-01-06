@@ -1,0 +1,14 @@
+name: Dash_HBV_Emergency_unit
+title: Dash_HBV_Emergency_unit
+username:
+account: anastasiarebolledo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7986137
+bundleId: 6705165
+url: https://anastasiarebolledo.shinyapps.io/Dash_HBV_Emergency_unit/
+when: 1673031226.4924
+lastSyncTime: 1673031226.49242
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: template_fomanticUI.R
