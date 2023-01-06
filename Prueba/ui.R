@@ -30,7 +30,7 @@ source("traductor.R")
 
 # Define UI for application that draws a histogram
 dashboardPage(
-  dashboardHeader(title = i18n$t("Unidad de Urgencia HBV"),titleWidth = 250),
+  dashboardHeader(title = i18n$t("Dash Unidad de Urgencia HBV"),titleWidth = 250),
   dashboardSidebar(width = 250,skin = "light",elevation = 2,status = "primary",
                    sidebarMenu(
                      id = "sidebar",
