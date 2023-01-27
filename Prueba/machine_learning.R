@@ -31,11 +31,12 @@ h2o.init(max_mem_size =  "10g",min_mem_size = "1g")
 train_h2o<-as.h2o(train)
 valid_h2o<-as.h2o(valid)
 
-rn_grid_est3<-h2o.grid("deeplearning",x = names(train_h2o[,22:48]),y = names(train_h2o[2]),
-                       grid_id = "rn_est3",
-                       training_frame = train_h2o,
-                       validation_frame=valid_h2o,
-                       seed=1,
-                       hyper_params = rn_params_est3,
-                       search_criteria = criterio_rn_est3,
-                       parallelism = 10)
+dl <- h2o.deeplearning(x = "variable x",
+                       y = "variable y",
+                       hidden = c(5,5),
+                       epochs = 1000,
+                       activation = "Tanh",
+                       seed = 23123)
+
+predic_train_bike_rn_est3<-h2o.predict(train_rn_model_bike_est3,valid_h2o)
+predic_train_bike_rn_est3<-as.data.frame(predic_train_bike_rn_est3)
