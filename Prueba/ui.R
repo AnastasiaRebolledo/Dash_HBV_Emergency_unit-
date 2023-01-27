@@ -42,7 +42,10 @@ dashboardPage(
                               selected = FALSE),
                     menuItem(i18n$t("Urgencias covid"),tabName="menu3",
                               icon=icon("layer-group"),
-                              selected = FALSE)
+                              selected = FALSE),
+                    menuItem(i18n$t("Predicción demanda"),tabName="menu4",
+                             icon=icon("layer-group"),
+                             selected = FALSE)
                     )),
   dashboardBody(
     tabItems(
@@ -97,6 +100,9 @@ dashboardPage(
                        status = "secondary",headerBorder = FALSE,collapsible = FALSE),
                             box(width = 6,title = i18n$t("Histogramas de atenciones de urgencia casos covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
                                 status = "secondary",headerBorder = FALSE,collapsible = FALSE))
+          ),
+  
+  tabItem(tabName = "menu2",
           )
   )
   
