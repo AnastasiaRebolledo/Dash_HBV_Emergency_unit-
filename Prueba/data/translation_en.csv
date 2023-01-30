@@ -6,7 +6,7 @@ Dash Unidad de Urgencia HBV,Dash HBV Emergency unit
 Menu Principal,Main menu
 Estadisticas anuales,Annual statistics
 Urgencias covid,Covid emergencies
-Demanda,demand
+Demanda,Demand
 Demanda de atenciones de urgencia por día, Demand for urgent care per day
 Media, Mean
 Desviación estándar, Standard deviation
@@ -30,3 +30,5 @@ TOTAL CAUSAS SISTEMA CIRCULATORIO, TOTAL CAUSES CIRCULATORY SYSTEM
 TOTAL TRAUMATISMOS Y ENVENENAMIENTO, TOTAL INJURIES AND POISONING
 TOTAL DEMÁS CAUSAS, TOTAL OTHER CAUSES
 Predicción demanda, Demand forescast
+Predicción, Forecast
+Demanda diaria real vs predicción, Actual daily demand vs prediction

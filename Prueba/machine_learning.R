@@ -41,3 +41,7 @@ dl <- h2o.deeplearning(x = 3:29,
 predicción<-h2o.predict(dl,valid_h2o)
 predicción<-as.data.frame(predicción)
 compara<-data.frame(predicción,valid$`data$demanda`)
+
+df <- data.frame(matrix(nrow = 1169, ncol = 1)) 
+colnames(df) = c("predict")
+predicciónframe<-rbind(df,predicción)

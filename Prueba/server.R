@@ -134,4 +134,15 @@ shinyServer(function(input, output) {
                       name = i18n$t("Adultos de 65 y más años"))
       
     })
+
+# Menu 4 ###   
+    output$grafico_predicción<-renderHighchart({
+      
+      highchart() %>%
+        hc_add_series(name=i18n$t("Demanda"),data, type = "line",
+                      hcaes(x = x1, y = demanda)) %>%
+        hc_add_series(name=i18n$t("Predicción"),data, type = "line",
+                      hcaes(x = x1, y = predicciónframe$predict)) %>% hc_xAxis(type="datetime")
+    })    
+    
 })

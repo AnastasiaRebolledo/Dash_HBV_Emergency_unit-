@@ -103,6 +103,9 @@ dashboardPage(
           ),
   
   tabItem(tabName = "menu4",
+          fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE))
           )
   )
   
