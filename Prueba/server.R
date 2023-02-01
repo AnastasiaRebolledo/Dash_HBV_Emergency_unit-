@@ -142,7 +142,7 @@ shinyServer(function(input, output) {
         hc_add_series(name=i18n$t("Demanda"),data, type = "line",
                       hcaes(x = x1, y = demanda)) %>%
         hc_add_series(name=i18n$t("Predicción"),data, type = "line",
-                      hcaes(x = x1, y = predicciónframe$predict)) %>% hc_xAxis(type="datetime")
+                      hcaes(x = x1, y = predict)) %>% hc_xAxis(type="datetime")
     })    
     
 })

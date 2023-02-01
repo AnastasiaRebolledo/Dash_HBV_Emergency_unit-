@@ -45,6 +45,8 @@ compara<-data.frame(predicción,valid$`data$demanda`)
 df <- data.frame(matrix(nrow = 1169, ncol = 1)) 
 colnames(df) = c("predict")
 predicciónframe<-rbind(df,predicción)
+data<-cbind(data,predicciónframe)
+
 MSE<-dl@model$training_metrics@metrics$MSE
 mae<-dl@model$training_metrics@metrics$mae
 
