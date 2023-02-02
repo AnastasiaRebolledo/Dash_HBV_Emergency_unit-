@@ -143,6 +143,27 @@ shinyServer(function(input, output) {
                       hcaes(x = x1, y = demanda)) %>%
         hc_add_series(name=i18n$t("Predicción"),data, type = "line",
                       hcaes(x = x1, y = predict)) %>% hc_xAxis(type="datetime")
-    })    
+    })   
+    
+    output$MSE<-renderText({MSE})
+    
+    output$mae<-renderText({mae})
+    
+    output$mrd<-renderText({mrd})
+    
+    output$grafico_predicción_gbm<-renderHighchart({
+      
+      highchart() %>%
+        hc_add_series(name=i18n$t("Demanda"),data, type = "line",
+                      hcaes(x = x1, y = demanda)) %>%
+        hc_add_series(name=i18n$t("Predicción"),data, type = "line",
+                      hcaes(x = x1, y = predict_gbm)) %>% hc_xAxis(type="datetime")
+    })   
+    
+    output$MSE2<-renderText({MSE2})
+    
+    output$mae2<-renderText({mae2})
+    
+    output$mrd2<-renderText({mrd2})
     
 })
