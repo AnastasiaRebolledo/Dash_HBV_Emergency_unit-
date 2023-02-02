@@ -103,3 +103,16 @@ covid_por_edad2$X4<- rowSums(covid_por_edad2[,7:8], na.rm = FALSE)
 covid_por_edad2$X5<- rowSums(covid_por_edad2[,9:10], na.rm = FALSE)
 covid_por_edad2[,-6:-10]
                       
+### Listas de espera
+causas_muerte<-read.xlsx(file="listas_de_espera.xlsx",sheetIndex = 1, rowIndex = 2:16, colIndex= 2:4
+              , as.data.frame = TRUE, header = TRUE)
+
+
+indice_ocupacional_2020<-c(read.xlsx(file="listas_de_espera.xlsx",sheetIndex = 1, rowIndex = 2, colIndex= 10
+                                   , as.data.frame = TRUE, header = FALSE))
+
+promedio_dias_cama_2020<-c(read.xlsx(file="listas_de_espera.xlsx",sheetIndex = 1, rowIndex = 4, colIndex= 10
+                                     , as.data.frame = TRUE, header = FALSE))
+
+promedio_dias_estadia_2020<-c(read.xlsx(file="listas_de_espera.xlsx",sheetIndex = 1, rowIndex = 5, colIndex= 10
+                                     , as.data.frame = TRUE, header = FALSE))

@@ -25,13 +25,14 @@ library(promises)
 library(future)
 #library(shiny.fluent)
 library(shiny.i18n)
+library(scales)
 source("traductor.R")
 
 
 # Define UI for application that draws a histogram
 dashboardPage(
-  dashboardHeader(title = i18n$t("Dash Unidad de Urgencia HBV"),titleWidth = 250),
-  dashboardSidebar(width = 250,skin = "light",elevation = 2,status = "primary",
+  dashboardHeader(title = i18n$t("Dash Unidad de Urgencia HBV"),titleWidth = 350),
+  dashboardSidebar(width = 350,skin = "light",elevation = 2,status = "primary",
                    sidebarMenu(
                      id = "sidebar",
                      menuItem(i18n$t("Menu Principal"),tabName = "menu1",icon=icon("laptop-medical"),
@@ -47,7 +48,7 @@ dashboardPage(
                     menuItem(i18n$t("Urgencias covid"),tabName="menu3",
                               icon=icon("heart-pulse"),
                               selected = FALSE),
-                    menuItem(i18n$t("Listas de espera"),tabName="menu5",
+                    menuItem(i18n$t("Listas de espera"),tabName="menu4",
                              icon=icon("bed-pulse"),
                              selected = FALSE)
                     
@@ -133,7 +134,13 @@ dashboardPage(
                                 status = "secondary",headerBorder = FALSE,collapsible = FALSE))
           ),
 
-  tabItem(tabName = "menu4")
+  tabItem(tabName = "menu4",
+          fluidRow(width=12,valueBox(width = 3,subtitle = i18n$t("Indice ocupacional 2020"),value = h2(textOutput("ind_ocu_2020")),color = "primary",icon = icon("check")),
+                            valueBox(width = 3,subtitle = i18n$t("Promedio dias cama 2020"),value = h2(textOutput("prom_dias_cama_2020")),color = "info",icon = icon("check")),
+                            valueBox(width = 3,subtitle = i18n$t("Promedio dias estadia 2020"),value = h2(textOutput("prom_dias_est_2020")),color = "success",icon = icon("check")),
+                            box(width = 3,closable = FALSE,elevation = 2,headerBorder = FALSE,collapsible = FALSE)),
+          fluidRow(width=12,box(width = 12,closable = FALSE,elevation = 2,headerBorder = FALSE,collapsible = FALSE,
+                                withSpinner(highchartOutput("grafico_causas_muerte_2020",height = "500px")))))
   
   )
   

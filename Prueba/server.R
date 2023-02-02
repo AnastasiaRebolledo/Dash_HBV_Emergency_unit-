@@ -166,5 +166,20 @@ shinyServer(function(input, output) {
     
     output$mae2<-renderText({mae2})
     
-    ####
+    ####### Listas de espera #######
+    
+    output$grafico_causas_muerte_2020<-renderHighchart({
+      
+      highchart() %>%
+        hc_chart(type = 'column') %>%
+        hc_xAxis(categories = causas_muerte$Causas.de.muerte.2020) %>%
+        hc_add_series(causas_muerte$Num, name = "Causas de muerte",dataLabels = list(enabled = TRUE)) %>%
+        hc_exporting(enabled = TRUE) %>%
+        hc_plotOptions(series = list(animation = FALSE))
+      
+            })  
+    
+    output$ind_ocu_2020<-renderText({scales::percent(indice_ocupacional_2020$X10,accuracy = 0.01)})
+    output$prom_dias_cama_2020<-renderText({promedio_dias_cama_2020$X10})
+    output$prom_dias_est_2020<-renderText({promedio_dias_estadia_2020$X10})
 })
