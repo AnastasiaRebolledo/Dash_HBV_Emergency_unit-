@@ -34,18 +34,23 @@ dashboardPage(
   dashboardSidebar(width = 250,skin = "light",elevation = 2,status = "primary",
                    sidebarMenu(
                      id = "sidebar",
-                     menuItem(i18n$t("Menu Principal"),tabName="menu1",
-                              icon=icon("layer-group"),
-                              selected = TRUE),
+                     menuItem(i18n$t("Menu Principal"),tabName = "menu1",icon=icon("laptop-medical"),
+                                         menuSubItem(i18n$t("Menu Principal"),tabName="menu1",
+                                         icon=icon("chart-simple"),
+                                         selected = TRUE),
+                                         menuSubItem(i18n$t("Predicción demanda"),tabName="menu4",
+                                icon=icon("chart-line"),
+                                selected = FALSE)),
                      menuItem(i18n$t("Estadisticas anuales"),tabName="menu2",
-                              icon=icon("layer-group"),
+                              icon=icon("hospital"),
                               selected = FALSE),
                     menuItem(i18n$t("Urgencias covid"),tabName="menu3",
-                              icon=icon("layer-group"),
-                              selected = FALSE),
-                    menuItem(i18n$t("Predicción demanda"),tabName="menu4",
-                             icon=icon("layer-group"),
-                             selected = FALSE)
+                              icon=icon("heart-pulse"),
+                              selected = FALSE)
+                    # ,
+                    # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
+                    #          icon=icon("layer-group"),
+                    #          selected = FALSE)
                     )),
   dashboardBody(
     tabItems(
