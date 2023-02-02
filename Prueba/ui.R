@@ -81,7 +81,7 @@ dashboardPage(
   
   tabItem(tabName = "menu1_2",
           
-                  fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+                  fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción red neuronal"),closable = FALSE,elevation = 2,
                                         withSpinner(highchartOutput("grafico_predicción",height = "300px")),
                                         status = "primary",headerBorder = FALSE,collapsible = FALSE),
                            column(width = 2,
@@ -89,7 +89,7 @@ dashboardPage(
                                   valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE"),color = "info",icon = icon("check")),
                                   valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae"),color = "success",icon = icon("check"))
                            )),
-                  fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+                  fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción gbm"),closable = FALSE,elevation = 2,
                                         withSpinner(highchartOutput("grafico_predicción_gbm",height = "300px")),
                                         status = "primary",headerBorder = FALSE,collapsible = FALSE),
                            column(width = 2,

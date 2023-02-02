@@ -31,7 +31,8 @@ TOTAL TRAUMATISMOS Y ENVENENAMIENTO, TOTAL INJURIES AND POISONING
 TOTAL DEMÁS CAUSAS, TOTAL OTHER CAUSES
 Predicción demanda, Demand forescast
 Predicción, Forecast
-Demanda diaria real vs predicción, Actual daily demand vs prediction
+Demanda diaria real vs predicción red neuronal, Actual daily demand vs neural network prediction
+Demanda diaria real vs predicción gbm, Actual daily demand vs gbm prediction
 Error Cuadrático Medio,MSE
 Raíz del Error Cuadrático Medio, RMSE
 Error Absoluto Medio, mae
