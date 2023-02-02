@@ -166,5 +166,4 @@ shinyServer(function(input, output) {
     
     output$mae2<-renderText({mae2})
     
-    
 })
