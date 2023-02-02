@@ -32,3 +32,6 @@ TOTAL DEMÁS CAUSAS, TOTAL OTHER CAUSES
 Predicción demanda, Demand forescast
 Predicción, Forecast
 Demanda diaria real vs predicción, Actual daily demand vs prediction
+Error Cuadrático Medio,MSE
+Raíz del Error Cuadrático Medio, RMSE
+Error Absoluto Medio, mae

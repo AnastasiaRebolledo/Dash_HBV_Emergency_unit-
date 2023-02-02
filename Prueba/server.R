@@ -70,7 +70,7 @@ shinyServer(function(input, output) {
                        hcaes(x = x2, y = y3)) %>%
          hc_add_series(name="2022",data_por_año, type = "line",
                        hcaes(x = x2, y = y4)) %>% hc_xAxis(type="datetime") %>%
-         hc_colors(cols) 
+        hc_colors(cols)
         
     })
     
@@ -88,7 +88,7 @@ shinyServer(function(input, output) {
                       name = "2021") %>%
       hc_add_series(density(data_por_año$y4[1:340]), type = "area",
                       name = "2022") %>%
-      hc_colors(cols)
+        hc_colors(cols)
       
     })
 
@@ -143,6 +143,28 @@ shinyServer(function(input, output) {
                       hcaes(x = x1, y = demanda)) %>%
         hc_add_series(name=i18n$t("Predicción"),data, type = "line",
                       hcaes(x = x1, y = predict)) %>% hc_xAxis(type="datetime")
-    })    
+    })   
+    
+    output$MSE<-renderText({MSE})
+    
+    output$RMSE<-renderText({RMSE})
+    
+    output$mae<-renderText({mae})
+    
+    output$grafico_predicción_gbm<-renderHighchart({
+      
+      highchart() %>%
+        hc_add_series(name=i18n$t("Demanda"),data, type = "line",
+                      hcaes(x = x1, y = demanda)) %>%
+        hc_add_series(name=i18n$t("Predicción"),data, type = "line",
+                      hcaes(x = x1, y = predict_gbm)) %>% hc_xAxis(type="datetime")
+    })   
+    
+    output$MSE2<-renderText({MSE2})
+    
+    output$RMSE2<-renderText({RMSE2})
+    
+    output$mae2<-renderText({mae2})
+    
     
 })

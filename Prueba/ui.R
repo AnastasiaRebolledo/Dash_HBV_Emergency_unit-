@@ -115,7 +115,28 @@ dashboardPage(
                             box(width = 6,title = i18n$t("Histogramas de atenciones de urgencia casos covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
                                 status = "secondary",headerBorder = FALSE,collapsible = FALSE))
           ),
+<<<<<<< HEAD
   tabItem(tabName = "menu4")
+=======
+  
+  tabItem(tabName = "menu4",
+          fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE),
+          column(width = 2,
+                 valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE"),color = "primary",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE"),color = "info",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae"),color = "success",icon = icon("check"))
+          )),
+          fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción_gbm",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE),
+          column(width = 2,
+                 valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE2"),color = "primary",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE2"),color = "info",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae2"),color = "success",icon = icon("check"))
+          )))
+>>>>>>> 307b5389305710beb455537899c871118055db1e
   )
   
 ))
