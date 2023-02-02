@@ -50,7 +50,7 @@ dashboardPage(
                     menuItem(i18n$t("Listas de espera"),tabName="menu5",
                              icon=icon("bed-pulse"),
                              selected = FALSE)
-                    # ,
+                    
                     # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
                     #          icon=icon("layer-group"),
                     #          selected = FALSE)
