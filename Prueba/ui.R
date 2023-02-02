@@ -112,17 +112,17 @@ dashboardPage(
                                 withSpinner(highchartOutput("grafico_predicción",height = "300px")),
                                 status = "primary",headerBorder = FALSE,collapsible = FALSE),
           column(width = 2,
-                 valueBox(width = 12,subtitle = i18n$t("MSE"),value = textOutput("MSE"),color = "primary",icon = icon("check")),
-                 valueBox(width = 12,subtitle = i18n$t("mae"),value = textOutput("mae"),color = "info",icon = icon("check")),
-                 valueBox(width = 12,subtitle = i18n$t("Mean residual deviance"),value = textOutput("mrd"),color = "success",icon = icon("check"))
+                 valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE"),color = "primary",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE"),color = "info",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae"),color = "success",icon = icon("check"))
           )),
           fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
                                 withSpinner(highchartOutput("grafico_predicción_gbm",height = "300px")),
                                 status = "primary",headerBorder = FALSE,collapsible = FALSE),
           column(width = 2,
-                 valueBox(width = 12,subtitle = i18n$t("MSE"),value = textOutput("MSE2"),color = "primary",icon = icon("check")),
-                 valueBox(width = 12,subtitle = i18n$t("mae"),value = textOutput("mae2"),color = "info",icon = icon("check")),
-                 valueBox(width = 12,subtitle = i18n$t("Mean residual deviance"),value = textOutput("mrd2"),color = "success",icon = icon("check"))
+                 valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE2"),color = "primary",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE2"),color = "info",icon = icon("check")),
+                 valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae2"),color = "success",icon = icon("check"))
           )))
   )
   

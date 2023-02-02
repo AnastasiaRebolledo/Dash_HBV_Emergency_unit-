@@ -70,7 +70,7 @@ shinyServer(function(input, output) {
                        hcaes(x = x2, y = y3)) %>%
          hc_add_series(name="2022",data_por_año, type = "line",
                        hcaes(x = x2, y = y4)) %>% hc_xAxis(type="datetime") %>%
-         hc_colors(cols) 
+        hc_colors(cols)
         
     })
     
@@ -88,7 +88,7 @@ shinyServer(function(input, output) {
                       name = "2021") %>%
       hc_add_series(density(data_por_año$y4[1:340]), type = "area",
                       name = "2022") %>%
-      hc_colors(cols)
+        hc_colors(cols)
       
     })
 
@@ -147,9 +147,9 @@ shinyServer(function(input, output) {
     
     output$MSE<-renderText({MSE})
     
-    output$mae<-renderText({mae})
+    output$RMSE<-renderText({RMSE})
     
-    output$mrd<-renderText({mrd})
+    output$mae<-renderText({mae})
     
     output$grafico_predicción_gbm<-renderHighchart({
       
@@ -162,8 +162,9 @@ shinyServer(function(input, output) {
     
     output$MSE2<-renderText({MSE2})
     
+    output$RMSE2<-renderText({RMSE2})
+    
     output$mae2<-renderText({mae2})
     
-    output$mrd2<-renderText({mrd2})
     
 })
