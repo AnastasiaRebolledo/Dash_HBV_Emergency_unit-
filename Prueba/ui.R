@@ -35,10 +35,10 @@ dashboardPage(
                    sidebarMenu(
                      id = "sidebar",
                      menuItem(i18n$t("Menu Principal"),tabName = "menu1",icon=icon("laptop-medical"),
-                                         menuSubItem(i18n$t("Menu Principal"),tabName="menu1",
+                                         menuSubItem(i18n$t("Menu Principal"),tabName="menu1_1",
                                          icon=icon("chart-simple"),
                                          selected = TRUE),
-                                         menuSubItem(i18n$t("Predicción demanda"),tabName="menu4",
+                                         menuSubItem(i18n$t("Predicción demanda"),tabName="menu1_2",
                                 icon=icon("chart-line"),
                                 selected = FALSE)),
                      menuItem(i18n$t("Estadisticas anuales"),tabName="menu2",
@@ -46,7 +46,10 @@ dashboardPage(
                               selected = FALSE),
                     menuItem(i18n$t("Urgencias covid"),tabName="menu3",
                               icon=icon("heart-pulse"),
-                              selected = FALSE)
+                              selected = FALSE),
+                    menuItem(i18n$t("Listas de espera"),tabName="menu4",
+                             icon=icon("bed-pulse"),
+                             selected = FALSE)
                     # ,
                     # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
                     #          icon=icon("layer-group"),
@@ -54,7 +57,7 @@ dashboardPage(
                     )),
   dashboardBody(
     tabItems(
-      tabItem(tabName = "menu1",
+      tabItem(tabName = "menu1_1",
     
     # Boxes need to be put in a row (or column)
     fluidRow(width=12,box(width = 10,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,
@@ -74,6 +77,12 @@ dashboardPage(
                       box(width = 4,title = i18n$t("Atenciones de urgencia por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("grafico_circular_2",height = "300px")),
                           status = "secondary",headerBorder = FALSE,collapsible = FALSE))
    
+  ),
+  
+  tabItem(tabName = "menu1_2",
+          fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE))
   ),
       tabItem(tabName = "menu2",
               fluidRow(width=12,box(width = 12,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,
@@ -106,12 +115,7 @@ dashboardPage(
                             box(width = 6,title = i18n$t("Histogramas de atenciones de urgencia casos covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
                                 status = "secondary",headerBorder = FALSE,collapsible = FALSE))
           ),
-  
-  tabItem(tabName = "menu4",
-          fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
-                                withSpinner(highchartOutput("grafico_predicción",height = "300px")),
-                                status = "primary",headerBorder = FALSE,collapsible = FALSE))
-          )
+  tabItem(tabName = "menu4")
   )
   
 ))
