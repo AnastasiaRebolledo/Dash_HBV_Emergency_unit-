@@ -65,15 +65,15 @@ gbm_params_est3<-list(learn_rate=c(0.001,0.005,0.007,0.01,0.05,0.07,0.1,0.5,0.7)
                       seed=c(1,10,50,100,200,500,700,1000,3000,5000,7000,10000),
                       learn_rate_annealing=c(0.99,0.989,0.985,0.983,0.98,0.94,0.92,0.89))
 
-gbm_grid<-h2o.grid("gbm",
-                   x = 3:29,
-                   y = "data$demanda",
-                   training_frame = train_h2o,
-                   hyper_params = gbm_params_est3,
-                   search_criteria = criteria)
-listado_gbm<-h2o.getGrid(grid_id = "Grid_GBM_train_sid_be46_1_model_R_1675282783287_11",sort_by = "MSE",decreasing = FALSE)
-mejor_gbm<-h2o.getModel(listado_gbm@model_ids[[1]])
-predicción_gbm<-as.data.frame(listado_gbm@model_ids[[1]])
+# gbm_grid<-h2o.grid("gbm",
+#                   x = 3:29,
+#                   y = "data$demanda",
+#                   training_frame = train_h2o,
+#                   hyper_params = gbm_params_est3,
+#                   search_criteria = criteria)
+#listado_gbm<-h2o.getGrid(grid_id = "Grid_GBM_train_sid_be46_1_model_R_1675282783287_11",sort_by = "MSE",decreasing = FALSE)
+#mejor_gbm<-h2o.getModel(listado_gbm@model_ids[[1]])
+#predicción_gbm<-as.data.frame(listado_gbm@model_ids[[1]])
 
 
 gbm<-h2o.gbm(x = 3:29,
