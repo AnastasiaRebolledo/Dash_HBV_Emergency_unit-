@@ -38,4 +38,4 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-/Prueba/server.R
+Prueba/server.R
