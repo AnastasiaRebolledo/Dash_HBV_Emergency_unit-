@@ -17,7 +17,6 @@ demanda.diaria<-demanda.diaria%>%
   select_if(~!any(is.na(.)))%>%
   mutate_if(is.ordered,~as.character(.)%>%as.factor)
 
-demanda.diaria<-cbind(data$demanda,demanda.diaria)
 #colnames(demanda.diaria$`data$demanda`)<-c("demanda")
 
 #generacion del set de datos train y valid
@@ -31,7 +30,7 @@ train_h2o<-as.h2o(train)
 valid_h2o<-as.h2o(valid)
 
 dl <- h2o.deeplearning(x = 3:29,
-                       y = "data$demanda",
+                       y = "demanda",
                        training_frame = train_h2o,
                        hidden = c(200,200,200),
                        epochs = 1500,
@@ -76,7 +75,7 @@ mae<-dl@model$training_metrics@metrics$mae
 
 
 gbm<-h2o.gbm(x = 3:29,
-             y = "data$demanda",
+             y = "demanda",
              training_frame = train_h2o,
              ntrees = 150,
              learn_rate = 0.7,
@@ -98,3 +97,24 @@ colnames(df) = c("predict")
 predicciónframe2<-rbind(df,predicción2)
 colnames(predicciónframe2)=c("predict_gbm")
 data<-cbind(data,predicciónframe2)
+
+# predicción enero y febrero ##
+h2o_demandadiaira<- as.h2o(demanda.diaria)
+
+gbm2<-h2o.gbm(x = 3:29,
+             y = "demanda",
+             training_frame = h2o_demandadiaira,
+             ntrees = 150,
+             learn_rate = 0.7,
+             min_rows = 1,
+             sample_rate = 0.8,
+             learn_rate_annealing = 0.983,
+             max_depth = 100,
+             seed = 200)
+
+predicción3<-h2o.predict(gbm,h2o_demandadiaira)
+predicción3<-as.data.frame(predicción3)
+
+colnames(df) = c("predict")
+predicciónframe3<-rbind(df,predicción3)
+colnames(predicciónframe3)=c("predicción_enyfeb")
