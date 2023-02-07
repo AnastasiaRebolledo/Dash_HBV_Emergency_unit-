@@ -166,6 +166,15 @@ shinyServer(function(input, output) {
     
     output$mae2<-renderText({mae2})
     
+    output$grafico_predicción_gbm_eneyfeb<-renderHighchart({
+      
+      highchart(type = "stock") %>%
+        hc_add_series(name=i18n$t("Demanda"),data2, type = "line",
+                      hcaes(x = x1, y = demanda)) %>%
+        hc_add_series(name=i18n$t("Predicción"),predicciónframe3, type = "line",
+                      hcaes(x = x5, y = predict)) %>% hc_xAxis(type="datetime")
+    })   
+    
     ####### Listas de espera #######
     
     output$grafico_causas_muerte_2020<-renderHighchart({

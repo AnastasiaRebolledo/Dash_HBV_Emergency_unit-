@@ -116,3 +116,13 @@ promedio_dias_cama_2020<-c(read.xlsx(file="listas_de_espera.xlsx",sheetIndex = 1
 
 promedio_dias_estadia_2020<-c(read.xlsx(file="listas_de_espera.xlsx",sheetIndex = 1, rowIndex = 5, colIndex= 10
                                      , as.data.frame = TRUE, header = FALSE))
+
+## set de datos con fechas enero y febrero #
+x3<-seq(as.Date("2023-01-01"),as.Date("2023-02-28"),"day")
+x3<-as.data.frame(x3)
+columnavacia <- data.frame(matrix(nrow = 59, ncol = 1))
+colnames(columnavacia)<-c('demanda')
+colnames(x3)<-c('x1')
+x3<-cbind(x3,columnavacia)
+data2<-data.frame(x1,demanda)
+data2<-rbind(data2,x3)

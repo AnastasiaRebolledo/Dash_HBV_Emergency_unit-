@@ -73,6 +73,7 @@ mae<-dl@model$training_metrics@metrics$mae
 #mejor_gbm<-h2o.getModel(listado_gbm@model_ids[[1]])
 #predicción_gbm<-as.data.frame(listado_gbm@model_ids[[1]])
 
+#### entrenamiento gbm ####
 
 gbm<-h2o.gbm(x = 3:29,
              y = "demanda",
@@ -99,7 +100,27 @@ colnames(predicciónframe2)=c("predict_gbm")
 data<-cbind(data,predicciónframe2)
 
 # predicción enero y febrero ##
-h2o_demandadiaira<- as.h2o(demanda.diaria)
+x4<-seq(as.Date("2023-01-01"),as.Date("2023-02-28"),"day")
+x4<-as.data.frame(x4)
+columna <- data.frame(matrix(nrow = 59, ncol = 1)) 
+colnames(columna) = c("demanda")
+x4<-cbind(x4,columna)
+x4<-x4%>%tk_augment_timeseries_signature()
+
+#limpiar los NA
+x4<-x4%>%
+  select_if(~!any(is.na(.)))%>%
+  mutate_if(is.ordered,~as.character(.)%>%as.factor)
+h2o_x4<- as.h2o(x4)
+
+predicción3<-h2o.predict(gbm,h2o_x4)
+predicción3<-as.data.frame(predicción3)
+x5<-seq(as.Date("2019-01-01"),as.Date("2023-02-28"),"day")
+x5<-as.data.frame(x5)
+dt<-data.frame(matrix(nrow = 1461, ncol = 1))
+colnames(dt) = c("predict")
+predicciónframe3<-rbind(dt,predicción3)
+predicciónframe3<-cbind(x5,predicciónframe3)
 
 gbm2<-h2o.gbm(x = 3:29,
              y = "demanda",
@@ -112,9 +133,5 @@ gbm2<-h2o.gbm(x = 3:29,
              max_depth = 100,
              seed = 200)
 
-predicción3<-h2o.predict(gbm,h2o_demandadiaira)
-predicción3<-as.data.frame(predicción3)
 
-colnames(df) = c("predict")
-predicciónframe3<-rbind(df,predicción3)
-colnames(predicciónframe3)=c("predicción_enyfeb")
+
