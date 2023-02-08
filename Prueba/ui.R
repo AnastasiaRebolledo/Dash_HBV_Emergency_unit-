@@ -36,12 +36,17 @@ dashboardPage(
                    sidebarMenu(
                      id = "sidebar",
                      menuItem(i18n$t("Menu Principal"),tabName = "menu1",icon=icon("laptop-medical"),
-                                         menuSubItem(i18n$t("Menu Principal"),tabName="menu1_1",
-                                         icon=icon("chart-simple"),
-                                         selected = TRUE),
-                                         menuSubItem(i18n$t("Predicción demanda"),tabName="menu1_2",
-                                icon=icon("chart-line"),
-                                selected = FALSE)),
+                              menuSubItem(i18n$t("Menu Principal"),tabName="menu1_1",
+                                          icon=icon("chart-simple"),
+                                          selected = TRUE),
+                              menuSubItem(i18n$t("Validación modelos"),tabName="menu1_2",
+                                          icon=icon("check-square"),
+                                          selected = FALSE), 
+                              menuSubItem(i18n$t("Predicción demanda"),tabName="menu1_3",
+                                          icon=icon("chart-line"),
+                                          selected = FALSE)),
+                     
+                     
                      menuItem(i18n$t("Estadisticas anuales"),tabName="menu2",
                               icon=icon("hospital"),
                               selected = FALSE),
@@ -101,6 +106,12 @@ dashboardPage(
           # fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
           #                       withSpinner(highchartOutput("grafico_predicción",height = "300px")),
           #                       status = "primary",headerBorder = FALSE,collapsible = FALSE))
+  
+  tabItem(tabName = "menu1_3",
+          
+          fluidRow(width=12,box(width = 12,title = i18n$t("Predicción de la demanda enero y febrero 2023"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción_gbm_eneyfeb",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE))),
   
       tabItem(tabName = "menu2",
               fluidRow(width=12,box(width = 12,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,

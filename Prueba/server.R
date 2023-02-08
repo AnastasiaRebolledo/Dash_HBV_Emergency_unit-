@@ -18,7 +18,7 @@ shinyServer(function(input, output) {
 # menu 1 ####
     output$grafico_general<-renderHighchart({
       
-      highchart() %>%
+      highchart(type = "stock") %>%
             hc_add_series(name=i18n$t("Demanda"),data, type = "line",
                       hcaes(x = x1, y = demanda))  %>% hc_xAxis(type="datetime")
       })
@@ -61,7 +61,7 @@ shinyServer(function(input, output) {
       
 #menu 2 ####   
       #Aca cambie la forma de realizar el grafico pero con la misma libreria highcharter
-       highchart() %>%
+       highchart(type = "stock") %>%
         hc_add_series(name="2019",data_por_año, type = "line",
                       hcaes(x = x2, y = y1)) %>%
          hc_add_series(name="2020",data_por_año, type = "line",
@@ -110,7 +110,7 @@ shinyServer(function(input, output) {
 # menu 3 ####    
     output$grafico_covid<-renderHighchart({
       
-      highchart() %>%
+      highchart(type = "stock") %>%
         hc_add_series(name=i18n$t("Demanda"),covid, type = "line",
                       hcaes(x = x1, y = covid))  %>% hc_xAxis(type="datetime")
     })

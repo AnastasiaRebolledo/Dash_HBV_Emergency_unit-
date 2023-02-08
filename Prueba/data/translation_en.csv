@@ -36,3 +36,5 @@ Demanda diaria real vs predicción gbm, Actual daily demand vs gbm prediction
 Error Cuadrático Medio,MSE
 Raíz del Error Cuadrático Medio, RMSE
 Error Absoluto Medio, mae
+Validación modelos, Model Validation
+Predicción de la demanda enero y febrero 2023, Demand forecast January and February 2023

@@ -19,7 +19,7 @@ demanda.diaria<-demanda.diaria%>%
 
 #colnames(demanda.diaria$`data$demanda`)<-c("demanda")
 
-#generacion del set de datos train y valid
+#generacion del set de datos train y valid ####
 train<-demanda.diaria[1:1169,]
 valid<-demanda.diaria[1170:1461,]
 
@@ -28,6 +28,36 @@ h2o.init(ip = "localhost",max_mem_size =  "8g",min_mem_size = "1g")
 #transformar el data.frame en un formato h2o
 train_h2o<-as.h2o(train)
 valid_h2o<-as.h2o(valid)
+
+## grid red neuronal ####
+
+hiperparametros <- list(hidden = list(c(64), c(128), c(256), c(512), c(1024),
+                                      c(64,64), c(128,128), c(256,256),
+                                      c(512, 512)))
+
+grid_dl <- h2o.grid(algorithm = "deeplearning",
+                    activation = "RectifierWithDropout",
+                    epochs = 500,
+                    y = "demanda",
+                    x = 3:29,
+                    training_frame = train_h2o,
+                    shuffle_training_data = FALSE,
+                    validation_frame = valid_h2o,
+                    standardize = TRUE,
+                    missing_values_handling = "Skip",
+                    stopping_rounds = 3,
+                    stopping_metric = "AUC",
+                    stopping_tolerance = 0.01,
+                    hyper_params = hiperparametros,
+                    l1 = 1e-5,
+                    l2 = 1e-5,
+                    search_criteria = list(strategy = "Cartesian"),
+                    seed = 123,
+                    grid_id = "grid_dl")
+
+resultados_grid <- h2o.getGrid(grid_id = "grid_dl",
+                               sort_by = "auc",
+                               decreasing = TRUE)
 
 dl <- h2o.deeplearning(x = 3:29,
                        y = "demanda",
@@ -50,7 +80,7 @@ RMSE<-dl@model$training_metrics@metrics$RMSE
 mae<-dl@model$training_metrics@metrics$mae
 
 
-## gbm ###
+## grid gbm ###
 
 #criteria<-list(strategy='RandomDiscrete',max_models=150)
 
