@@ -61,7 +61,7 @@ shinyServer(function(input, output) {
       
 #menu 2 ####   
       #Aca cambie la forma de realizar el grafico pero con la misma libreria highcharter
-       highchart(type = "stock") %>%
+       highchart() %>%
         hc_add_series(name="2019",data_por_año, type = "line",
                       hcaes(x = x2, y = y1)) %>%
          hc_add_series(name="2020",data_por_año, type = "line",
@@ -138,7 +138,7 @@ shinyServer(function(input, output) {
 # Menu 4 ###   
     output$grafico_predicción<-renderHighchart({
       
-      highchart() %>%
+      highchart(type = "stock") %>%
         hc_add_series(name=i18n$t("Demanda"),data, type = "line",
                       hcaes(x = x1, y = demanda)) %>%
         hc_add_series(name=i18n$t("Predicción"),data, type = "line",
@@ -153,7 +153,7 @@ shinyServer(function(input, output) {
     
     output$grafico_predicción_gbm<-renderHighchart({
       
-      highchart() %>%
+      highchart(type = "stock") %>%
         hc_add_series(name=i18n$t("Demanda"),data, type = "line",
                       hcaes(x = x1, y = demanda)) %>%
         hc_add_series(name=i18n$t("Predicción"),data, type = "line",
@@ -179,6 +179,13 @@ shinyServer(function(input, output) {
     
     output$grafico_causas_muerte_2020<-renderHighchart({
       
+      causas_muerte$Causas.de.muerte.2020<-i18n$t(c("Tumores","Enfermedades del sistema circulatorio","Enfermedades el sistema digestivo",
+                                                    "Traumatismo,envenenamientos","Enfermedades del sistema respiratorio",
+                                                    "Enfermedades del sistema nervioso central","Codigos para propositos especiales",
+                                                    "Enf. Endocrinas,nutricionales y metabolicas","Trastornos mentales y del comportamiento",
+                                                    "Sintomas,signos mal definidos","Enfermedades del sistema genitourinario",
+                                                    "Ciertas enfermedades infecciosas y parasitarias",
+                                                    "Enfermedades de la piel y del tejido subcutaneo","Otras"))
       highchart() %>%
         hc_chart(type = 'column') %>%
         hc_xAxis(categories = causas_muerte$Causas.de.muerte.2020) %>%

@@ -33,7 +33,7 @@ valid_h2o<-as.h2o(valid)
 
 criteria_rd<-list(strategy='RandomDiscrete',max_models=150)
 
-hiperparametros <- list(hidden = c(30,40,50,60,70,100,150,200,250,500,550,600,650,700,1000),
+hiperparametros <- list(hidden = list(c(64), c(128), c(256), c(512), c(1024),c(64,64), c(128,128), c(256,256),c(512, 512)),
                         activation=c("Rectifier","Maxout","Tahn","RectifierWithDropout","MaxoutWithDropout","TahnWithDropout"),
                         epochs=c(5,10,15,20,50,55,60,65,70,100,150,200),
                         rate=c(0.001,0.005,0.007,0.01,0.05,0.07,0.1,0.5,0.7),
@@ -49,7 +49,6 @@ grid_dl <- h2o.grid(algorithm = "deeplearning",
                     standardize = TRUE,
                     missing_values_handling = "Skip",
                     stopping_rounds = 3,
-                    stopping_metric = "MAE",
                     stopping_tolerance = 0.01,
                     hyper_params = hiperparametros,
                     l1 = 1e-5,
@@ -59,8 +58,8 @@ grid_dl <- h2o.grid(algorithm = "deeplearning",
                     grid_id = "grid_dl")
 
 resultados_grid <- h2o.getGrid(grid_id = "grid_dl",
-                               sort_by = "auc",
-                               decreasing = TRUE)
+                               sort_by = "mae",
+                               decreasing = FALSE)
 
 dl <- h2o.deeplearning(x = 3:29,
                        y = "demanda",
