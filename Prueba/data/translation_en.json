@@ -1,0 +1,218 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  "languages": ["es", "en"],
+  "translation": [
+    {
+     "es": "Cantidad",
+     "en": "Quantity"
+     },
+    {
+     "es": "Edades",
+     "en": "Ages"
+    },
+    {
+      "es": "Causas",
+      "en": "Causes"
+    },
+    {
+      "es": "Dash Unidad de Urgencia HBV",
+      "en": "Dash HBV Emergency unit"
+    },
+    {
+      "es": "Menu Principal",
+      "en": "Main menu"
+    },
+    {
+      "es": "Estadisticas anuales",
+      "en": "Annual statistics"
+    },
+    {
+      "es": "Urgencias covid",
+      "en": "Covid emergencies"
+    },
+    {
+      "es": "Demanda",
+      "en": "Demand"
+    },
+    {
+      "es": "Demanda de atenciones de urgencia por día",
+      "en": "Demand for urgent care per day"
+    },
+    {
+      "es": "Media",
+      "en": "Mean"
+    },
+    {
+      "es": "Desviación estándar",
+      "en": "Standard deviation"
+    },
+    {
+      "es": "Asimetría",
+      "en": "asymmetry"
+    },
+    {
+      "es": "Histograma de atenciones diarias de urgencias",
+      "en": "Histogram of daily emergency care"
+    },
+    {
+      "es": "Histogramas de atenciones diarias de urgencias",
+      "en": "Histograms of daily emergency care"
+    },
+    {
+      "es": "Atenciones de urgencia por causa",
+      "en": "Emergency care according to cause"
+    },
+    {
+      "es": "Atenciones de urgencia por edad",
+      "en": "Emergency care by age"
+    },
+    {
+      "es": "Demanda diaria casos con Covid-19",
+      "en": "Daily demand for cases with Covid-19"
+    },
+    {
+      "es": "Atenciones de urgencia de casos con Covid-19 por edad",
+      "en": "Emergency care for cases with Covid-19 by age"
+    },
+    {
+      "es": "Histogramas de atenciones de urgencia casos covid-19 por edad",
+      "en": "Histograms of covid-19 emergency care by age"
+    },
+    {
+      "es": "Año",
+      "en": "Year"
+    },
+    {
+      "es": "Niños menores de 1 año",
+      "en": "Children under 1 year"
+    },
+    {
+      "es": "Niños de 1 a 4 años",
+      "en": "Children from 1 to 4 years"
+    },
+    {
+      "es": "Niños de 5 a 14 años",
+      "en": "Children from 5 to 14 years"
+    },
+    {
+      "es": "Adultos de 15 a 64 años",
+      "en": "Adults from 15 to 64 years"
+    },
+    {
+      "es": "Adultos de 65 y más años",
+      "en": "Adults 65 and over"
+    },
+    {
+      "es": "TOTAL CAUSAS SISTEMA RESPIRATORIO",
+      "en": "TOTAL CAUSES RESPIRATORY SYSTEM"
+    },
+    {
+      "es": "Covid-19",
+      "en": "Covid-19"
+    },
+    {
+      "es": "TOTAL CAUSAS SISTEMA CIRCULATORIO",
+      "en": "TOTAL CAUSES CIRCULATORY SYSTEM"
+    },
+    {
+      "es": "TOTAL TRAUMATISMOS Y ENVENENAMIENTO",
+      "en": "TOTAL INJURIES AND POISONING"
+    },
+    {
+      "es": "TOTAL DEMÁS CAUSAS",
+      "en": "TOTAL OTHER CAUSES"
+    },
+    {
+      "es": "Predicción demanda",
+      "en": "Demand forescast"
+    },
+    {
+      "es": "Predicción",
+      "en": "Forecast"
+    },
+    {
+      "es": "Demanda diaria real vs predicción red neuronal",
+      "en": "Actual daily demand vs neural network prediction"
+    },
+    {
+      "es": "Demanda diaria real vs predicción gbm",
+      "en": "Actual daily demand vs gbm prediction"
+    },
+    {
+      "es": "Error Cuadrático Medio",
+      "en": "MSE"
+    },
+    {
+      "es": "Raíz del Error Cuadrático Medio",
+      "en": "RMSE"
+    },
+    {
+      "es": "Error Absoluto Medio",
+      "en": "MAE"
+    },
+    {
+      "es": "Validación modelos",
+      "en": "Model Validation"
+    },
+    {
+      "es": "Predicción de la demanda enero y febrero 2023",
+      "en": "Demand forecast January and February 2023"
+    },
+    {
+      "es": "Tumores",
+      "en": "Tumors"
+    },
+    {
+      "es": "Enfermedades del sistema circulatorio",
+      "en": "Circulatory system diseases"
+    },
+    {
+      "es": "Enfermedades el sistema digestivo",
+      "en": "Digestive system diseases"
+    },
+    {
+      "es": "Traumatismo",
+      "en": "envenenamientos, traumatism, poisoning"
+    },
+    {
+      "es": "Enfermedades del sistema nervioso central",
+      "en": "Central nervous system diseases"
+    },
+    {
+      "es": "Codigos para propositos especiales",
+      "en": "codes for special purposes"
+    },
+    {
+      "es": "Enf. Endocrinas,nutricionales y metabolicas",
+      "en": "Endocrine, nutritional and metabolic diseases"
+    },
+    {
+      "es": "Trastornos mentales y del comportamiento",
+      "en": "Mental and behavioral disorders"
+    },
+    {
+      "es": "Sintomas,signos mal definidos",
+      "en": "Symptoms, ill-defined signs"
+    },
+    {
+      "es": "Enfermedades del sistema genitourinario",
+      "en": "Diseases of the genitourinary system"
+    },
+    {
+      "es": "Ciertas enfermedades infecciosas y parasitarias",
+      "en": "Certain infectious and parasitic diseases"
+    },
+    {
+      "es": "Enfermedades de la piel y del tejido subcutaneo",
+      "en": "Skin and subcutaneous tissue diseases"
+    },
+    {
+      "es": "Otras",
+      "en": "Other"
+    },
+    {
+      "es": "Cambiar idioma",
+      "en": "Change language"
+    }
+  ]
+}
