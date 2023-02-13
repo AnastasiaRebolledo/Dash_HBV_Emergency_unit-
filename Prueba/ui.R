@@ -34,20 +34,21 @@ dashboardPage(
   dashboardHeader(title = i18n$t("Dash Unidad de Urgencia HBV"),titleWidth = 350),
   dashboardSidebar(width = 350,skin = "light",elevation = 2,status = "primary",
                    sidebarMenu(
-                     id = "sidebar",
-                     menuItem(i18n$t("Menu Principal"),tabName = "menu1",icon=icon("laptop-medical"),
-                              menuSubItem(i18n$t("Menu Principal"),tabName="menu1_1",
-                                          icon=icon("chart-simple"),
-                                          selected = TRUE),
-                              menuSubItem(i18n$t("Validación modelos"),tabName="menu1_2",
+                    id = "sidebar",
+                    menuItem(i18n$t("Menu Principal"),tabName = "menu0",
+                              icon=icon("laptop-medical"),
+                              selected = TRUE),
+                              
+                    menuItem(i18n$t("Predicción demanda"),tabName = "menu1",icon=icon("chart-line"),
+                              menuSubItem(i18n$t("Validación modelos"),tabName="menu1_1",
                                           icon=icon("check-square"),
                                           selected = FALSE), 
-                              menuSubItem(i18n$t("Predicción demanda"),tabName="menu1_3",
+                              menuSubItem(i18n$t("Predicción demanda"),tabName="menu1_2",
                                           icon=icon("chart-line"),
                                           selected = FALSE)),
                      
                      
-                     menuItem(i18n$t("Estadisticas anuales"),tabName="menu2",
+                    menuItem(i18n$t("Estadisticas anuales"),tabName="menu2",
                               icon=icon("hospital"),
                               selected = FALSE),
                     menuItem(i18n$t("Urgencias covid"),tabName="menu3",
@@ -63,7 +64,7 @@ dashboardPage(
                     )),
   dashboardBody(
     tabItems(
-      tabItem(tabName = "menu1_1",
+      tabItem(tabName = "menu0",
     
     # Boxes need to be put in a row (or column)
     fluidRow(width=12,box(width = 10,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,
@@ -85,7 +86,7 @@ dashboardPage(
    
   ),
   
-  tabItem(tabName = "menu1_2",
+  tabItem(tabName = "menu1_1",
           
                   fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción red neuronal"),closable = FALSE,elevation = 2,
                                         withSpinner(highchartOutput("grafico_predicción",height = "300px")),
@@ -107,7 +108,7 @@ dashboardPage(
           #                       withSpinner(highchartOutput("grafico_predicción",height = "300px")),
           #                       status = "primary",headerBorder = FALSE,collapsible = FALSE))
   
-  tabItem(tabName = "menu1_3",
+  tabItem(tabName = "menu1_2",
           
           fluidRow(width=12,box(width = 12,title = i18n$t("Predicción de la demanda enero y febrero 2023"),closable = FALSE,elevation = 2,
                                 withSpinner(highchartOutput("grafico_predicción_gbm_eneyfeb",height = "300px")),

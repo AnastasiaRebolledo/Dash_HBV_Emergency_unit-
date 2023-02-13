@@ -33,7 +33,7 @@ valid_h2o<-as.h2o(valid)
 
 criteria_rd<-list(strategy='RandomDiscrete',max_models=150)
 
-hiperparametros <- list(hidden = list(c(64), c(128), c(256), c(512), c(1024),c(64,64), c(128,128), c(256,256),c(512, 512)),
+hiperparametros <- list(hidden = list(c(64), c(128), c(256), c(512), c(1024),c(64,64), c(128,128), c(256,256),c(512, 512), c(256,256)),
                         activation=c("Rectifier","Maxout","Tahn","RectifierWithDropout","MaxoutWithDropout","TahnWithDropout"),
                         epochs=c(5,10,15,20,50,55,60,65,70,100,150,200),
                         rate=c(0.001,0.005,0.007,0.01,0.05,0.07,0.1,0.5,0.7),
