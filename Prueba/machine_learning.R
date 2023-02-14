@@ -23,7 +23,7 @@ demanda.diaria<-demanda.diaria%>%
 train<-demanda.diaria[1:1169,]
 valid<-demanda.diaria[1170:1461,]
 
-h2o.init(ip = "localhost",max_mem_size =  "8g",min_mem_size = "1g")
+h2o.init(ip = "localhost",max_mem_size =  "10g",min_mem_size = "1g")
 
 #transformar el data.frame en un formato h2o
 train_h2o<-as.h2o(train)
@@ -33,32 +33,25 @@ valid_h2o<-as.h2o(valid)
 
 criteria_rd<-list(strategy='RandomDiscrete',max_models=150)
 
-hiperparametros <- list(hidden = list(c(64), c(128), c(256), c(512), c(1024),c(64,64), c(128,128), c(256,256),c(512, 512), c(256,256)),
-                        activation=c("Rectifier","Maxout","Tahn","RectifierWithDropout","MaxoutWithDropout","TahnWithDropout"),
-                        epochs=c(5,10,15,20,50,55,60,65,70,100,150,200),
-                        rate=c(0.001,0.005,0.007,0.01,0.05,0.07,0.1,0.5,0.7),
-                        rate_annealing=c(0.000001,0.000005,0.000007,0.0001,0.0005,0.0007),
-                        rate_decay=c(0.99,0.989,0.983,0.98))
+hiperparametros <- list(hidden = list(c(64,64), c(128,128), c(256,256),c(512, 512), c(256,256,256)),
+                        activation=c("Rectifier","Maxout","Tahn"),
+                        epochs=c(5,10,200,1500,2000),
+                        rate=c(0.001,0.7),
+                        rate_annealing=c(0.000001,0.0007),
+                        rate_decay=c(0.99,0.98))
 
 grid_dl <- h2o.grid(algorithm = "deeplearning",
                     y = "demanda",
                     x = 3:29,
                     training_frame = train_h2o,
-                    shuffle_training_data = FALSE,
-                    validation_frame = valid_h2o,
-                    standardize = TRUE,
-                    missing_values_handling = "Skip",
-                    stopping_rounds = 3,
-                    stopping_tolerance = 0.01,
                     hyper_params = hiperparametros,
-                    l1 = 1e-5,
-                    l2 = 1e-5,
                     search_criteria = criteria_rd,
                     seed = 123,
-                    grid_id = "grid_dl")
+                    grid_id = "grid_dl",
+                    parallelism = 10)
 
 resultados_grid <- h2o.getGrid(grid_id = "grid_dl",
-                               sort_by = "mae",
+                               sort_by = "MSE",
                                decreasing = FALSE)
 
 dl <- h2o.deeplearning(x = 3:29,
