@@ -2,7 +2,7 @@
 #traduccion al archivo translation_en.csv que esta en la carpeta data
 
 # diccionario
-i18n <- Translator$new(translation_csvs_path = "data/")
+i18n <- Translator$new(translation_json_path = "data/translation_en.json")
 
 # si quieres cambiar a español,solo cambiar en por es y viceversa
 i18n$set_translation_language("en")

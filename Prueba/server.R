@@ -14,6 +14,8 @@ library(shiny)
 shinyServer(function(input, output) {
   load("datos_app.RData")
   
+  
+  
     
 # menu 1 ####
     output$grafico_general<-renderHighchart({

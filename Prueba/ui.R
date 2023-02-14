@@ -31,8 +31,8 @@ source("traductor.R")
 
 # Define UI for application that draws a histogram
 dashboardPage(
-  dashboardHeader(title = i18n$t("Dash Unidad de Urgencia HBV"),titleWidth = 350),
-  dashboardSidebar(width = 350,skin = "light",elevation = 2,status = "primary",
+  dashboardHeader(title = i18n$t("Dash Unidad de Urgencia HBV")),
+  dashboardSidebar(width = "320px",skin = "light",elevation = 2,status = "primary",
                    sidebarMenu(
                     id = "sidebar",
                     menuItem(i18n$t("Menu Principal"),tabName = "menu0",
@@ -57,6 +57,7 @@ dashboardPage(
                     menuItem(i18n$t("Listas de espera"),tabName="menu4",
                              icon=icon("bed-pulse"),
                              selected = FALSE)
+                    
                     
                     # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
                     #          icon=icon("layer-group"),
