@@ -38,25 +38,23 @@ dashboardPage(
                     menuItem(i18n$t("Menu Principal"),tabName = "menu0",
                               icon=icon("laptop-medical"),
                               selected = TRUE),
-                              
-                    menuItem(i18n$t("Modelamiento de la demanda"),tabName = "menu1",icon=icon("chart-line"),
-                              menuSubItem(i18n$t("Validación modelos"),tabName="menu1_1",
-                                          icon=icon("check-square"),
-                                          selected = FALSE), 
-                              menuSubItem(i18n$t("Predicción demanda"),tabName="menu1_2",
-                                          icon=icon("chart-line"),
-                                          selected = FALSE)),
-                     
-                     
-                    menuItem(i18n$t("Estadisticas anuales"),tabName="menu2",
+                     menuItem(i18n$t("Estadisticas anuales"),tabName="menu1",
                               icon=icon("hospital"),
                               selected = FALSE),
-                    menuItem(i18n$t("Urgencias covid"),tabName="menu3",
+                    menuItem(i18n$t("Urgencias covid"),tabName="menu2",
                               icon=icon("heart-pulse"),
                               selected = FALSE),
+                    menuItem(i18n$t("Modelamiento de la demanda"),tabName = "menu3",icon=icon("chart-line"),
+                             menuSubItem(i18n$t("Validación modelos"),tabName="menu3_1",
+                                         icon=icon("check-square"),
+                                         selected = FALSE), 
+                             menuSubItem(i18n$t("Predicción demanda"),tabName="menu3_2",
+                                         icon=icon("chart-line"),
+                                         selected = FALSE)),
                     menuItem(i18n$t("Listas de espera"),tabName="menu4",
                              icon=icon("bed-pulse"),
                              selected = FALSE)
+                   
                     
                     # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
                     #          icon=icon("layer-group"),
@@ -86,35 +84,8 @@ dashboardPage(
    
   ),
   
-  tabItem(tabName = "menu1_1",
-          
-                  fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción red neuronal"),closable = FALSE,elevation = 2,
-                                        withSpinner(highchartOutput("grafico_predicción",height = "300px")),
-                                        status = "primary",headerBorder = FALSE,collapsible = FALSE),
-                           column(width = 2,
-                                  valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE"),color = "primary",icon = icon("check")),
-                                  valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE"),color = "info",icon = icon("check")),
-                                  valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae"),color = "success",icon = icon("check"))
-                           )),
-                  fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción gbm"),closable = FALSE,elevation = 2,
-                                        withSpinner(highchartOutput("grafico_predicción_gbm",height = "300px")),
-                                        status = "primary",headerBorder = FALSE,collapsible = FALSE),
-                           column(width = 2,
-                                  valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE2"),color = "primary",icon = icon("check")),
-                                  valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE2"),color = "info",icon = icon("check")),
-                                  valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae2"),color = "success",icon = icon("check"))
-                           ))),
-          # fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
-          #                       withSpinner(highchartOutput("grafico_predicción",height = "300px")),
-          #                       status = "primary",headerBorder = FALSE,collapsible = FALSE))
-  
-  tabItem(tabName = "menu1_2",
-          
-          fluidRow(width=12,box(width = 12,title = i18n$t("Predicción de la demanda enero y febrero 2023"),closable = FALSE,elevation = 2,
-                                withSpinner(highchartOutput("grafico_predicción_gbm_eneyfeb",height = "300px")),
-                                status = "primary",headerBorder = FALSE,collapsible = FALSE))),
-  
-      tabItem(tabName = "menu2",
+
+      tabItem(tabName = "menu1",
               fluidRow(width=12,box(width = 12,title = i18n$t("Demanda de atenciones de urgencia por día"),closable = FALSE,elevation = 2,
                                     withSpinner(highchartOutput("grafico_principal",height = "300px")),
                                     status = "info",headerBorder = FALSE,collapsible = FALSE)),
@@ -136,7 +107,7 @@ dashboardPage(
     ),
 
   
-  tabItem(tabName = "menu3",
+  tabItem(tabName = "menu2",
           fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria casos con Covid-19"),closable = FALSE,elevation = 2,
                                 withSpinner(highchartOutput("grafico_covid",height = "300px")),
                                 status = "primary",headerBorder = FALSE,collapsible = FALSE)),
@@ -145,6 +116,33 @@ dashboardPage(
                             box(width = 6,title = i18n$t("Histogramas de atenciones de urgencia casos covid-19 por edad"),closable = FALSE,elevation = 2,withSpinner(highchartOutput("histogramas_covid_edad",height = "300px")),
                                 status = "secondary",headerBorder = FALSE,collapsible = FALSE))
           ),
+  tabItem(tabName = "menu3_1",
+          
+          fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción red neuronal"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE),
+                   column(width = 2,
+                          valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE"),color = "primary",icon = icon("check")),
+                          valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE"),color = "info",icon = icon("check")),
+                          valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae"),color = "success",icon = icon("check"))
+                   )),
+          fluidRow(width=12,box(width = 10,title = i18n$t("Demanda diaria real vs predicción gbm"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción_gbm",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE),
+                   column(width = 2,
+                          valueBox(width = 12,subtitle = i18n$t("Error Cuadrático Medio"),value = textOutput("MSE2"),color = "primary",icon = icon("check")),
+                          valueBox(width = 12,subtitle = i18n$t("Raíz del Error Cuadrático Medio"),value = textOutput("RMSE2"),color = "info",icon = icon("check")),
+                          valueBox(width = 12,subtitle = i18n$t("Error Absoluto Medio"),value = textOutput("mae2"),color = "success",icon = icon("check"))
+                   ))),
+  # fluidRow(width=12,box(width = 12,title = i18n$t("Demanda diaria real vs predicción"),closable = FALSE,elevation = 2,
+  #                       withSpinner(highchartOutput("grafico_predicción",height = "300px")),
+  #                       status = "primary",headerBorder = FALSE,collapsible = FALSE))
+  
+  tabItem(tabName = "menu3_2",
+          
+          fluidRow(width=12,box(width = 12,title = i18n$t("Predicción de la demanda enero y febrero 2023"),closable = FALSE,elevation = 2,
+                                withSpinner(highchartOutput("grafico_predicción_gbm_eneyfeb",height = "300px")),
+                                status = "primary",headerBorder = FALSE,collapsible = FALSE))),
 
   tabItem(tabName = "menu4",
           fluidRow(width=12,valueBox(width = 3,subtitle = i18n$t("Indice ocupacional 2020"),value = h2(textOutput("ind_ocu_2020")),color = "primary",icon = icon("check")),
@@ -154,6 +152,7 @@ dashboardPage(
           fluidRow(width=12,box(width = 12,closable = FALSE,elevation = 2,headerBorder = FALSE,collapsible = FALSE,
                                 withSpinner(highchartOutput("grafico_causas_muerte_2020",height = "500px")))))
   
-  )
+  ))
   
-))
+  
+)

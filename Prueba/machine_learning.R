@@ -53,16 +53,20 @@ valid_h2o<-as.h2o(valid)
 #                               sort_by = "MSE",
 #                               decreasing = FALSE)
 
+
 dl <- h2o.deeplearning(x = 3:29,
                        y = "demanda",
                        training_frame = train_h2o,
-                       hidden = c(256,256,256),
-                       epochs = 3000,
+                       hidden = c(256,256,256,256),
+                       epochs = 30000,
                        activation = "Rectifier",
                        seed = 123,
                        rate = 0.7,
                        rate_annealing = 0.000001,
-                       rate_decay = 0.99)
+                       rate_decay = 0.99,
+                       regression_stop = 0.00000000001,
+                       stopping_tolerance = 0.001,
+                       stopping_rounds = 100)
 
 predicción<-h2o.predict(dl,valid_h2o)
 predicción<-as.data.frame(predicción)
@@ -160,5 +164,5 @@ gbm2<-h2o.gbm(x = 3:29,
              max_depth = 100,
              seed = 200)
 
-
-
+h2o.varimp_plot(dl)
+h2o.learning_curve_plot(dl)

@@ -113,8 +113,11 @@ shinyServer(function(input, output) {
     output$grafico_covid<-renderHighchart({
       
       highchart(type = "stock") %>%
-        hc_add_series(name=i18n$t("Demanda"),covid, type = "line",
-                      hcaes(x = x1, y = covid))  %>% hc_xAxis(type="datetime")
+        hc_add_series(name=i18n$t("Demanda"),data, type = "line",
+                      hcaes(x = x1, y = demanda))  %>% hc_xAxis(type="datetime")%>%
+        hc_add_series(name=i18n$t("Demanda casos covid"),covid, type = "line", 
+                      hcaes(x = x1, y = covid))  %>% hc_xAxis(type="datetime") 
+        
     })
     
     output$grafico_circular_3<-renderHighchart({ 

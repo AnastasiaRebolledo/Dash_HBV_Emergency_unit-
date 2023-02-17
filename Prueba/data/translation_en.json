@@ -217,6 +217,10 @@
     {
       "es": "Modelamiento de la demanda",
       "en": "Demand modeling"
+    },
+    {
+      "es": "Demanda casos covid",
+      "en": "Demand covid cases"
     }
   ]
 }
