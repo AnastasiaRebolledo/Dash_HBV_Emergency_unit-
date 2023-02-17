@@ -31,36 +31,38 @@ valid_h2o<-as.h2o(valid)
 
 ## grid red neuronal ####
 
-criteria_rd<-list(strategy='RandomDiscrete',max_models=150)
+#criteria_rd<-list(strategy='RandomDiscrete',max_models=100)
 
-hiperparametros <- list(hidden = list(c(64,64), c(128,128), c(256,256),c(512, 512), c(256,256,256)),
-                        activation=c("Rectifier","Maxout","Tahn"),
-                        epochs=c(5,10,200,1500,2000),
-                        rate=c(0.001,0.7),
-                        rate_annealing=c(0.000001,0.0007),
-                        rate_decay=c(0.99,0.98))
+#hiperparametros <- list(hidden = list(c(256,256),c(512, 512), c(256,256,256),c(512,512,512)),
+#                        activation=c("Rectifier","Maxout","Tahn"),
+#                        epochs=c(200,1500,2000),
+#                        rate=c(0.001,0.7),
+#                        rate_annealing=c(0.000001,0.0007),
+#                        rate_decay=c(0.99,0.98))
 
-grid_dl <- h2o.grid(algorithm = "deeplearning",
-                    y = "demanda",
-                    x = 3:29,
-                    training_frame = train_h2o,
-                    hyper_params = hiperparametros,
-                    search_criteria = criteria_rd,
-                    seed = 123,
-                    grid_id = "grid_dl",
-                    parallelism = 10)
+#grid_dl <- h2o.grid(algorithm = "deeplearning",
+#                    y = "demanda",
+#                    x = 3:29,
+#                    training_frame = train_h2o,
+#                    hyper_params = hiperparametros,
+#                    search_criteria = criteria_rd,
+#                    seed = 123,
+#                    grid_id = "grid_dl")
 
-resultados_grid <- h2o.getGrid(grid_id = "grid_dl",
-                               sort_by = "MSE",
-                               decreasing = FALSE)
+#resultados_grid <- h2o.getGrid(grid_id = "grid_dl",
+#                               sort_by = "MSE",
+#                               decreasing = FALSE)
 
 dl <- h2o.deeplearning(x = 3:29,
                        y = "demanda",
                        training_frame = train_h2o,
-                       hidden = c(200,200,200),
-                       epochs = 1500,
-                       activation = "Tanh",
-                       seed = 23123)
+                       hidden = c(256,256,256),
+                       epochs = 3000,
+                       activation = "Rectifier",
+                       seed = 123,
+                       rate = 0.7,
+                       rate_annealing = 0.000001,
+                       rate_decay = 0.99)
 
 predicción<-h2o.predict(dl,valid_h2o)
 predicción<-as.data.frame(predicción)

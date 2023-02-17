@@ -5,10 +5,10 @@ account: anastasiarebolledo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7986137
-bundleId: 6826581
+bundleId: 6856175
 url: https://anastasiarebolledo.shinyapps.io/Dash_HBV_Emergency_unit/
-when: 1675918336.27154
-lastSyncTime: 1675918336.27155
+when: 1676602942.76566
+lastSyncTime: 1676602942.76567
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: template_fomanticUI.R
