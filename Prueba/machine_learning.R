@@ -58,7 +58,7 @@ dl <- h2o.deeplearning(x = 3:29,
                        y = "demanda",
                        training_frame = train_h2o,
                        hidden = c(256,256,256,256),
-                       epochs = 30000,
+                       epochs = 50000,
                        activation = "Rectifier",
                        seed = 123,
                        rate = 0.7,
@@ -66,7 +66,7 @@ dl <- h2o.deeplearning(x = 3:29,
                        rate_decay = 0.99,
                        regression_stop = 0.00000000001,
                        stopping_tolerance = 0.001,
-                       stopping_rounds = 100)
+                       stopping_rounds = 200)
 
 predicción<-h2o.predict(dl,valid_h2o)
 predicción<-as.data.frame(predicción)
