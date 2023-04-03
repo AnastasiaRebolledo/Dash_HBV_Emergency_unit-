@@ -11,8 +11,9 @@ library(shiny)
 #library(shinydashboard)
 #library(shinydashboardPlus)
 library(bs4Dash)
-library(rJava)
-library(xlsx)
+library(igraph)
+#library(rJava)
+#library(xlsx)
 #library(openxlsx)
 library(highcharter)
 library(dplyr)
@@ -21,8 +22,8 @@ library(moments)
 library(shinycssloaders)
 #source("carga.R")
 #library(shiny.worker)
-library(promises)
-library(future)
+#library(promises)
+#library(future)
 #library(shiny.fluent)
 library(shiny.i18n)
 library(scales)
@@ -50,10 +51,10 @@ dashboardPage(
                                          selected = FALSE), 
                              menuSubItem(i18n$t("Predicción demanda"),tabName="menu3_2",
                                          icon=icon("chart-line"),
-                                         selected = FALSE)),
-                    menuItem(i18n$t("Listas de espera"),tabName="menu4",
-                             icon=icon("bed-pulse"),
-                             selected = FALSE)
+                                         selected = FALSE))
+                    # menuItem(i18n$t("Listas de espera"),tabName="menu4",
+                    #          icon=icon("bed-pulse"),
+                    #          selected = FALSE)
                    
                     
                     # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
