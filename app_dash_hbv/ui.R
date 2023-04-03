@@ -52,14 +52,17 @@ dashboardPage(
                              menuSubItem(i18n$t("Predicción demanda"),tabName="menu3_2",
                                          icon=icon("chart-line"),
                                          selected = FALSE))
+<<<<<<< HEAD:app_dash_hbv/ui.R
                     # menuItem(i18n$t("Listas de espera"),tabName="menu4",
                     #          icon=icon("bed-pulse"),
                     #          selected = FALSE)
+=======
+                    #menuItem(i18n$t("Listas de espera"),tabName="menu4",
+                    #         icon=icon("bed-pulse"),
+                    #         selected = FALSE)
+>>>>>>> 3f1f98b467b44e5c7a708b013d85bbe58c6f843c:Prueba/ui.R
                    
                     
-                    # menuItem(i18n$t("Predicción demanda"),tabName="menu4",
-                    #          icon=icon("layer-group"),
-                    #          selected = FALSE)
                     )),
   dashboardBody(
     tabItems(
